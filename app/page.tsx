@@ -1,5 +1,5 @@
 export default function Home() {
-  const message =
+  const message = "hello";
 
-  return <div>Hello</div>
+  return <div>{message}</div>;
 }
