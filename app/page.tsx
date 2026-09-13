@@ -1,5 +1,3 @@
 export default function Home() {
-  const message = "hello";
-
-  return <div>{message}</div>;
+  return <h1>CI test</h1>;
 }
