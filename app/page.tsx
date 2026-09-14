@@ -1,3 +1,3 @@
 export default function Home() {
-  return <h1>VercelへのCI/CDができるようになりました</h1>;
+  return <h1>Preview画面が表示できるようになりました</h1>;
 }
