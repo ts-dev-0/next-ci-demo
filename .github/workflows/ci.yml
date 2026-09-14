@@ -1,11 +1,11 @@
-name: CI/CD
+name: CI
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
-  pull_request:
+  push:
     branches:
       - main
 
@@ -34,20 +34,3 @@ jobs:
 
       - name: Build
         run: npm run build
-
-  deploy:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: ci
-
-    runs-on: ubuntu-latest
-
-    env:
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Deploy to Vercel
-        run: npx vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
